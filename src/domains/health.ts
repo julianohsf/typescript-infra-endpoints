@@ -9,7 +9,7 @@ export class Health {
     this.dependencies = dependencies;
   }
 
-  check(): Health {
+  public check(): Health {
     this.dependencies.forEach(d => d.clear())
 
     const failedDependencies = this.dependencies.map(d => d.checkStatus()).filter(d => DependencyStatus.isFail(d.getStatus()))

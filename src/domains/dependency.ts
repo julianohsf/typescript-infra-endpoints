@@ -35,11 +35,11 @@ export class Dependency {
     this.checkStatusFn = checkStatusFn;
   }
 
-  clear(): void {
+  public clear(): void {
     this.status = null;
   }
 
-  checkStatus(): Dependency {
+  public checkStatus(): Dependency {
     try {
       this.status = this.checkStatusFn() ? DependencyStatus.UP : DependencyStatus.FAIL;
     } catch (error) {
@@ -49,7 +49,7 @@ export class Dependency {
     return this;
   }
 
-  getStatus(): DependencyStatus {
+  public getStatus(): DependencyStatus {
     return this.status;
   }
 
