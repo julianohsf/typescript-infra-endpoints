@@ -4,19 +4,23 @@ import { Dependency, DependencyStatus } from '../../src/domains/dependency';
 
 _chai.should();
 
-@suite class DependencyUnitTests {
-
+@suite class DependencyStatusUnitTests {
+  
   @test 'should return false when UP is passed to isFail'() {
     _chai.expect(DependencyStatus.isFail(DependencyStatus.UP)).to.false;
   }
-
+  
   @test 'should return false when PARTIAL is passed to isFail'() {
     _chai.expect(DependencyStatus.isFail(DependencyStatus.PARTIAL)).to.false;
   }
-
+  
   @test 'should return true when FAIL is passed to isFail'() {
     _chai.expect(DependencyStatus.isFail(DependencyStatus.FAIL)).to.true;
   }
+
+}  
+
+@suite class DependencyUnitTests {
 
   @test 'should return UP when checkStatusFn returns true'() {
     const dependency = new Dependency("Database", true, () => true)
