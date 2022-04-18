@@ -3,9 +3,9 @@ import { Dependency, DependencyStatus } from "./dependency";
 export class Health {
   status: string;
   message: string;
-  readonly dependencies: Dependency[];
+  readonly dependencies: Array<Dependency>;
 
-  constructor(dependencies: Dependency[]) {
+  constructor(dependencies: Array<Dependency>) {
     this.dependencies = dependencies;
   }
 
