@@ -14,14 +14,14 @@ export class Health {
 
     const failedDependencies = this.dependencies.map(d => d.checkStatus()).filter(d => DependencyStatus.isFail(d.getStatus()))
 
-    let status = DependencyStatus.UP;
+    let statusMessage = DependencyStatus.UP;
     if (failedDependencies.length >= 0) {
       const criticalFailuresCounter = failedDependencies.filter(d => d.isCritical).length;
-      status = criticalFailuresCounter > 0 ? DependencyStatus.FAIL : DependencyStatus.PARTIAL;
+      statusMessage = criticalFailuresCounter > 0 ? DependencyStatus.FAIL : DependencyStatus.PARTIAL;
     }
 
-    this.status = DependencyStatus.status(status);
-    this.message = DependencyStatus.message(status);
+    this.message = statusMessage
+    this.status = DependencyStatus.status(statusMessage);
 
     return this;
   }

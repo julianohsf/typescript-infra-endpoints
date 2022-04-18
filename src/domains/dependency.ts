@@ -10,10 +10,6 @@ export enum DependencyStatus {
 
 export namespace DependencyStatus {
   export function status(status: DependencyStatus): string {
-    return DependencyStatus[DependencyStatus[status]];
-  }
-
-  export function message(status: DependencyStatus): string {
     return DependencyStatus[status];
   }
 
@@ -35,8 +31,9 @@ export class Dependency {
     this.checkStatusFn = checkStatusFn;
   }
 
-  public clear(): void {
+  public clear(): Dependency {
     this.status = null;
+    return this;
   }
 
   public checkStatus(): Dependency {

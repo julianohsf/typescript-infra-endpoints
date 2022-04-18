@@ -9,8 +9,7 @@
   ],
   "scripts": {
     "test": "mocha -r ts-node/register 'test/**/*.tests.ts'",
-    "coverage": "nyc npm run test",
-    "mocha-help": "mocha --help"
+    "coverage": "nyc -r html npm run test"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
